@@ -14,10 +14,10 @@ export default function Layout({
     setSideBarVisible(!isSidebarVisible)
   }
   return (
-    <div className='flex flex-col h-screen'>
+    <div className='flex flex-col'>
       <Sidebar isSidebarVisible={isSidebarVisible} toggleSidebar={toggleSidebar} />
       <TopNav toggleSidebar={toggleSidebar} />
-      <div className="grow">{children}</div>
+      <div>{children}</div>
     </div>
   )
 }

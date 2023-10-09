@@ -6,7 +6,7 @@ const Quiz = ({level, deckid}: any) => {
   let kanjis = KanjiDictionary.getKanjiByLevel(level).slice(deckid*20, (deckid*20)+20)
   const [currentQuestion, options, checkAnswer, score, isLoading, previouslySelected] = useQuizLogic(kanjis)
   return (
-    <div className="flex flex-col h-full justify-between relative">
+    <div className="flex flex-col justify-between">
       <div className="flex flex-col gap-3 mt-32">
         <div className="flex gap-3 justify-center flex-wrap">
           {currentQuestion.readings_on.map((reading: any, index: number) => 
@@ -22,7 +22,7 @@ const Quiz = ({level, deckid}: any) => {
           )}
         </div>
       </div>
-      <div className="grid grid-cols-4 grid-rows-2 gap-2 my-5 absolute inset-x-0 bottom-0">
+      <div className="grid grid-cols-4 grid-rows-2 gap-2 my-5 absolute inset-x-4 bottom-0">
         {options.map((option: any, index: number) => 
         <OptionItem key={index} isLoading={isLoading} previouslySelected={previouslySelected}
           option={option} currentQuestion={currentQuestion} submitAnswer={checkAnswer} />
