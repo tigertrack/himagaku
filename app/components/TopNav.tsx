@@ -13,7 +13,9 @@ const TopNav = ({toggleSidebar}: Props) => {
       <div className="flex items-center gap-2 w-full sm:w-fit">
         <div className='sm:hidden gap-1'><FontAwesomeIcon icon={faBars} onClick={toggleSidebar} /></div>
         
-        <div onClick={() => route.push("/")} className='hover:cursor-pointer py-1 text-center grow sm:grow-0'>Himagaku</div>
+        <div className='text-center grow sm:grow-0'>
+          <span onClick={() => route.push("/")} className='hover:cursor-pointer' >Himagaku</span>
+        </div>
       </div>
       <div className="sm:flex gap-1 hidden">
         <Link href="/search" className="hover:bg-sky-600 hover:cursor-pointer px-3 py-1 rounded">Search</Link>
