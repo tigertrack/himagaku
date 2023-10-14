@@ -26,7 +26,7 @@ const Sidebar = ({isSidebarVisible, toggleSidebar} : Props) => {
   return (
     <aside>
       <div className={`w-3/4 h-screen bg-zinc-700 absolute transition-all ease-out duration-150 ${isSidebarVisible ? "translate-x-0" :"-translate-x-full" }`}>
-        <div className="flex p-4 items-center bg-sky-900">
+        <div className="flex p-4 items-center bg-sky-700">
           <FontAwesomeIcon size='3x' className="mr-4" icon={faUserCircle} />
           <div className="flex flex-col">
             <p className='text-xs'>Already have an account?</p>
