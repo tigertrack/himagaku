@@ -17,12 +17,13 @@ const Quiz = ({level, deckid}: any) => {
           )}
         </div>
         <div className="flex gap-3 justify-center flex-wrap">
-          {currentQuestion.meanings.map((meaning: string, index: number) => 
+          <span>{currentQuestion.meanings.join(', ')}</span>
+          {/* {currentQuestion.meanings.map((meaning: string, index: number) => 
             <span key={index}>{meaning}</span>
-          )}
+          )} */}
         </div>
       </div>
-      <div className="grid grid-cols-4 grid-rows-2 gap-2 my-5 absolute inset-x-4 bottom-0 -z-10">
+      <div className="grid grid-cols-4 grid-rows-2 gap-3 my-5 absolute inset-x-4 bottom-0 -z-10">
         {options.map((option: any, index: number) => 
         <OptionItem key={index} isLoading={isLoading} previouslySelected={previouslySelected}
           option={option} currentQuestion={currentQuestion} submitAnswer={checkAnswer} />

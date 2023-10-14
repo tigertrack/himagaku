@@ -11,7 +11,7 @@ const OptionItem = ({isLoading, submitAnswer, option, currentQuestion, previousl
   }
   return (
     <div onClick={selectOption(option)} 
-      className={`text-center p-5 rounded ${optionColor()}`}>
+      className={`text-center p-5 rounded ${optionColor()} hover:bg-zinc-600 hover:cursor-pointer`}>
         {option.kanji}
     </div>
   )
