@@ -1,4 +1,11 @@
-let levels: any[]
-levels = [undefined, "Mastery", "Advanced", "Intermediate", "Elementary", "Basic"]
+let levels: any[];
+levels = [
+  undefined,
+  'Mastery',
+  'Advanced',
+  'Intermediate',
+  'Elementary',
+  'Basic',
+];
 
-export default levels
+export default levels;
