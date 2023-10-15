@@ -27,7 +27,7 @@ const page = () => {
                 </div>
               </div>
               <Link
-                href={`/level/${level.level}`}
+                href={`/level/${level.id}`}
                 className="flex items-center bg-zinc-600 px-3 rounded hover:bg-zinc-500"
               >
                 Begin
