@@ -21,7 +21,7 @@ const Page = ({ params }: any) => {
     <div className="px-4 flex flex-col items-center gap-4">
       <div className="flex justify-between items-center w-full sm:w-5/6 mt-4">
         <p className="text-2xl sm:text-4xl">
-          N{level} - {levels[level+1].id}
+          N{level} - {levels[level + 1].id}
         </p>
         <p className="text-xs text-zinc-300 sm:text-base">
           {kanjis.length} Kanji in total

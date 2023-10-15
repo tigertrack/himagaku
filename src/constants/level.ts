@@ -24,7 +24,6 @@ let levels = [
     name: 'Basic',
     count: 79,
   },
-]
-
+];
 
 export default levels;
