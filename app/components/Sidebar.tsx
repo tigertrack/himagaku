@@ -1,10 +1,12 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faHeart, faPenRuler, faUser, faRightToBracket, faAddressCard,faLock, faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link';
 import levels from '../constants/level';
-
-
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { User } from '@supabase/supabase-js';
+import { useRouter } from 'next/navigation';
+import moment from 'moment'
 type Props = {
     isSidebarVisible: boolean,
     toggleSidebar: () => void
@@ -12,26 +14,47 @@ type Props = {
 
 const Sidebar = ({isSidebarVisible, toggleSidebar} : Props) => {
   const sidebarRef = useRef(null)
+  const [user, setUser] = useState<User | null>(null)
+  const supabase = createClientComponentClient()
+  const router = useRouter()
 
   useEffect(() => {
     const hideSidebar = (event: any) => {
         if(sidebarRef.current != event.target && isSidebarVisible) toggleSidebar()
     }
+
+    const fetchUser = async () => {
+      const { data, error } = await supabase.auth.getUser();
+      if (data.user) setUser(data.user);
+      else console.error('Error fetching user:', error);
+    };
+
+    fetchUser()
+
     document.addEventListener("click", hideSidebar, false)
     
     return () => {
         document.removeEventListener("click", hideSidebar, false)
     }
   })
+
+  const handleSignOut = async () => {
+    await supabase.auth.signOut()
+    router.push('/login')
+  }
   return (
     <aside>
       <div className={`w-3/4 h-screen bg-zinc-700 absolute transition-all ease-out duration-150 ${isSidebarVisible ? "translate-x-0" :"-translate-x-full" }`}>
         <div className="flex p-4 items-center bg-sky-700">
           <FontAwesomeIcon size='3x' className="mr-4" icon={faUserCircle} />
-          <div className="flex flex-col">
+          {!user && <div className="flex flex-col">
             <p className='text-xs'>Already have an account?</p>
             <p className='text-xs'>Proceed to <Link href="/login">Login</Link> or <Link href="/register">register</Link> a new account</p>
-          </div>
+          </div>}
+          {user && <div className="flex flex-col">
+            <p className='text-xs'>{user.email}</p>
+            <p className='text-xs'>Last login: {moment(user.last_sign_in_at).fromNow()}</p>
+          </div>}
         </div>
         <div className="flex flex-col">
           <Link href="/search" className="px-4 py-3 hover:bg-zinc-600">
@@ -54,10 +77,10 @@ const Sidebar = ({isSidebarVisible, toggleSidebar} : Props) => {
             <FontAwesomeIcon className="mr-4" icon={faUser} />
             Profiles
           </Link>
-          <div className="px-4 py-3 hover:bg-zinc-600">
+          {user && <div className="px-4 py-3 hover:bg-zinc-600" onClick={handleSignOut}>
             <FontAwesomeIcon className="mr-4" icon={faLock} />
             logout
-          </div>
+          </div>}
         </div>
       </div>
     </aside>
