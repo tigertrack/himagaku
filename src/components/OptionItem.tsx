@@ -19,12 +19,12 @@ const OptionItem = ({
       option.kanji == previouslySelected
     )
       return 'bg-rose-700';
-    return 'bg-zinc-700 ';
+    return 'bg-zinc-700 hover:bg-zinc-600 ';
   };
   return (
     <div
       onClick={selectOption(option)}
-      className={`text-center p-5 rounded ${optionColor()} hover:bg-zinc-600 hover:cursor-pointer`}
+      className={`text-center p-5 rounded ${optionColor()} hover:cursor-pointer`}
     >
       {option.kanji}
     </div>

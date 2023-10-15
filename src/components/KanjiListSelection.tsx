@@ -23,7 +23,7 @@ const KanjiListSelection = ({ kanjis, splitCount, selectedDeck }: any) => {
             <div className="flex flex-col gap-0 justify-items-center">
               <p className="text-base leading-tight">Set {index + 1}</p>
               <span className="text-xs text-zinc-400 leading-tight">
-                {splitCount} Kanji
+                {set.length} Kanji
               </span>
             </div>
           </div>
