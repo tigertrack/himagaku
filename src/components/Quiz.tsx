@@ -32,9 +32,6 @@ const Quiz = ({ level, deckid }: any) => {
         </div>
         <div className="flex gap-3 justify-center flex-wrap">
           <span>{currentQuestion.meanings.join(', ')}</span>
-          {/* {currentQuestion.meanings.map((meaning: string, index: number) => 
-            <span key={index}>{meaning}</span>
-          )} */}
         </div>
       </div>
       <div className="grid grid-cols-4 grid-rows-2 gap-3 my-5 absolute inset-x-4 bottom-0 -z-10">
