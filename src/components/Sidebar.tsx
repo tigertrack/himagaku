@@ -93,14 +93,14 @@ const Sidebar = ({ isSidebarVisible, toggleSidebar }: Props) => {
             Favorites
           </Link>
 
-          {levels.slice(1).map((level: number, index: number) => (
+          {levels.map((level: any, index: number) => (
             <Link
               key={index}
               href={`/level/${index + 1}`}
               className="px-4 py-3 hover:bg-zinc-600"
             >
               <FontAwesomeIcon className="mr-4" icon={faPenRuler} />N{index + 1}{' '}
-              - {level}
+              - {level.name}
             </Link>
           ))}
 

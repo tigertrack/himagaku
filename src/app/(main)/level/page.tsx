@@ -1,33 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import levels from '@/src/constants/level';
 const page = () => {
-  const levels = [
-    {
-      level: 1,
-      name: 'Mastery',
-      count: 1232,
-    },
-    {
-      level: 2,
-      name: 'Advanced',
-      count: 367,
-    },
-    {
-      level: 3,
-      name: 'Intermediate',
-      count: 367,
-    },
-    {
-      level: 4,
-      name: 'Elementary',
-      count: 166,
-    },
-    {
-      level: 5,
-      name: 'Basic',
-      count: 79,
-    },
-  ];
   return (
     <div className="px-4 flex flex-col items-center gap-4">
       <div className="flex justify-between items-center w-full sm:w-5/6 mt-4"></div>

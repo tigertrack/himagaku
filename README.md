@@ -12,4 +12,5 @@
 - [*] restructure folder into src
 - [*] implement formatter
 - [ ] add x button to close sidebar
-- [ ] refactor levels parsing functionality to a different file
+- [8] refactor levels parsing functionality to a different file
+- [ ] add game over screen
