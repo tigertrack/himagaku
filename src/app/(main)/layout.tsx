@@ -1,6 +1,6 @@
 'use client'
-import TopNav from '../components/TopNav'
-import Sidebar from '../components/Sidebar'
+import TopNav from '../../components/TopNav'
+import Sidebar from '../../components/Sidebar'
 import { useState } from 'react'
 
 export default function Layout({

@@ -1,8 +1,8 @@
 "use client"
 import { redirect } from 'next/navigation'
-import KanjiDictionary from '@/app/functions/KanjiDictionary'
-import KanjiListSelection from '@/app/components/KanjiListSelection'
-import levels from '@/app/constants/level'
+import KanjiDictionary from '@/src/functions/KanjiDictionary'
+import KanjiListSelection from '@/src/components/KanjiListSelection'
+import levels from '@/src/constants/level'
 import { useRouter } from 'next/navigation';
 
 const Page = ({params}: any) => {

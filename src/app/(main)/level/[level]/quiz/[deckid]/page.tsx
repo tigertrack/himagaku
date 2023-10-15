@@ -1,5 +1,5 @@
 import React from 'react'
-import Quiz from '@/app/components/Quiz'
+import Quiz from '@/src/components/Quiz'
 const page = ({params}: any) => {
 
   return (
