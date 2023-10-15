@@ -23,14 +23,6 @@ const Sidebar = ({isSidebarVisible, toggleSidebar} : Props) => {
         if(sidebarRef.current != event.target && isSidebarVisible) toggleSidebar()
     }
 
-    const fetchUser = async () => {
-      const { data, error } = await supabase.auth.getUser();
-      if (data.user) setUser(data.user);
-      else console.error('Error fetching user:', error);
-    };
-
-    fetchUser()
-
     document.addEventListener("click", hideSidebar, false)
     
     return () => {
@@ -38,13 +30,22 @@ const Sidebar = ({isSidebarVisible, toggleSidebar} : Props) => {
     }
   })
 
+  useEffect(() => {
+    const fetchUser = async () => {
+      const { data: { session }, error } = await supabase.auth.getSession();
+      if (session?.user) setUser(session.user);
+    };
+
+    fetchUser()
+  }, [supabase.auth])
+  
   const handleSignOut = async () => {
     await supabase.auth.signOut()
     router.push('/login')
   }
   return (
     <aside>
-      <div className={`w-3/4 h-screen bg-zinc-700 absolute transition-all ease-out duration-150 ${isSidebarVisible ? "translate-x-0" :"-translate-x-full" }`}>
+      <div className={`sm:hidden w-3/4 h-screen bg-zinc-700 absolute transition-all ease-out duration-150 ${isSidebarVisible ? "translate-x-0" :"-translate-x-full" }`}>
         <div className="flex p-4 items-center bg-sky-700">
           <FontAwesomeIcon size='3x' className="mr-4" icon={faUserCircle} />
           {!user && <div className="flex flex-col">
