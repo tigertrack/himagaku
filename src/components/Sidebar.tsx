@@ -5,8 +5,6 @@ import {
   faHeart,
   faPenRuler,
   faUser,
-  faRightToBracket,
-  faAddressCard,
   faLock,
   faUserCircle,
 } from '@fortawesome/free-solid-svg-icons';
