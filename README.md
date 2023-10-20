@@ -1,4 +1,5 @@
 ## todos
+
 - [x] set mobile open on fullscreen
 - [x] fix clickable area to homepage on mobile
 - [x] add navbar on home
